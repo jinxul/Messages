@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/PermissionsFragment">
+
+    <fragment
+        android:id="@+id/PermissionsFragment"
+        android:name="com.givekesh.messages.ui.PermissionsFragment"
+        tools:layout="@layout/fragment_permissions">
+        <action
+            android:id="@+id/action_PermissionsFragment_to_ThreadsFragment"
+            app:destination="@id/ThreadsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ThreadsFragment"
+        android:name="com.givekesh.messages.ui.threads.ThreadsFragment"
+        tools:layout="@layout/fragment_threads">
+
+        <action
+            android:id="@+id/action_ThreadsFragment_to_ConversationFragment"
+            app:destination="@id/ConversationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ConversationFragment"
+        android:name="com.givekesh.messages.ui.conversation.ConversationFragment"
+        tools:layout="@layout/fragment_conversation">
+
+        <action
+            android:id="@+id/action_ConversationFragment_to_ThreadsFragment"
+            app:destination="@id/ThreadsFragment" />
+    </fragment>
+</navigation>

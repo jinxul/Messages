@@ -1,0 +1,59 @@
+ext.deps = [:]
+
+def build_versions = [:]
+build_versions.compile_sdk = 30
+build_versions.build_tools = "30.0.3"
+build_versions.min_sdk = 23
+build_versions.target_sdk = 30
+ext.build_versions = build_versions
+
+def versions = [:]
+versions.AGP = '7.0.0-alpha03'
+versions.kotlin = '1.4.21'
+versions.core = '1.3.2'
+versions.activity = '1.2.0-rc01'
+versions.material = '1.2.1'
+versions.constraintlayout = '2.0.4'
+versions.navigation = '2.3.2'
+versions.junit = '4.13.1'
+versions.ext_junit = '1.1.2'
+versions.espresso = '3.3.0'
+versions.hilt = '2.30.1-alpha'
+versions.hilt_vm = '1.0.0-alpha02'
+ext.versions = versions
+
+def deps = [:]
+deps.AGP = "com.android.tools.build:gradle:$versions.AGP"
+deps.kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+deps.material = "com.google.android.material:material:$versions.material"
+deps.junit = "junit:junit:$versions.junit"
+
+def androidx = [:]
+androidx.core = "androidx.core:core-ktx:$versions.core"
+androidx.activity = "androidx.activity:activity-ktx:$versions.activity"
+androidx.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
+androidx.junit = "androidx.test.ext:junit:$versions.ext_junit"
+androidx.espresso = "androidx.test.espresso:espresso-core:$versions.espresso"
+deps.androidx = androidx
+
+def navigation = [:]
+navigation.fragment = "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
+navigation.ui = "androidx.navigation:navigation-ui-ktx:$versions.navigation"
+deps.navigation = navigation
+
+def hilt = [:]
+hilt.plugin = "com.google.dagger:hilt-android-gradle-plugin:$versions.hilt"
+hilt.android = "com.google.dagger:hilt-android:$versions.hilt"
+hilt.compiler = "com.google.dagger:hilt-android-compiler:$versions.hilt"
+hilt.vm = "androidx.hilt:hilt-lifecycle-viewmodel:$versions.hilt_vm"
+hilt.vm_compiler = "androidx.hilt:hilt-compiler:$versions.hilt_vm"
+deps.hilt = hilt
+
+ext.deps = deps
+
+static def addRepos(RepositoryHandler handler) {
+    handler.google()
+    handler.jcenter()
+}
+
+ext.addRepos = this.&addRepos
