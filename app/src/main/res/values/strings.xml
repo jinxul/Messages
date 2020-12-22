@@ -1,6 +1,13 @@
 <resources>
     <string name="app_name">Messages</string>
     <string name="action_settings">Settings</string>
-    <!-- Strings used for fragments for navigation -->
-
+    <!-- Strings used for Permission Rational -->
+    <string name="rational_title">App Need Permissions.</string>
+    <string name="rational_content">To finish setting up your default app,
+        let Messages see your SMS, Phone, and Contacts.</string>
+    <string name="permission_denied_title">Grant Access</string>
+    <string name="permission_denied_content">change permissions in your device\'s app settings.
+        Give Messages access to SMS, Phone, and Contacts.</string>
+    <string name="next">Next</string>
+    <string name="exit">Exit</string>
 </resources>

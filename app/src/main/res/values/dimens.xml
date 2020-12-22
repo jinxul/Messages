@@ -1,3 +1,5 @@
 <resources>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="permission_padding">64dp</dimen>
+    <dimen name="content_margin">16dp</dimen>
 </resources>

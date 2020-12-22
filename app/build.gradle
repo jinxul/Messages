@@ -44,6 +44,7 @@ dependencies {
 
     implementation deps.androidx.core
     implementation deps.androidx.activity
+    implementation deps.androidx.fragment
     implementation deps.androidx.constraintlayout
 
     implementation deps.navigation.fragment
