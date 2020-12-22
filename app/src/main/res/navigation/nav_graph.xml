@@ -11,7 +11,9 @@
         tools:layout="@layout/fragment_permissions">
         <action
             android:id="@+id/action_PermissionsFragment_to_ThreadsFragment"
-            app:destination="@id/ThreadsFragment" />
+            app:destination="@id/ThreadsFragment"
+            app:popUpTo="@id/PermissionsFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/ThreadsFragment"
