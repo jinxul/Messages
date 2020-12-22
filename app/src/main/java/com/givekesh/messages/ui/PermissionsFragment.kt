@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.findNavController
 import com.givekesh.messages.R
 import com.givekesh.messages.databinding.FragmentPermissionsBinding
@@ -54,11 +55,17 @@ class PermissionsFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        (activity as AppCompatActivity).supportActionBar?.hide()
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
         _requestPermissionLauncher?.unregister()
         _activityLauncher?.unregister()
+        (activity as AppCompatActivity).supportActionBar?.show()
     }
 
     private fun setupListeners() {
