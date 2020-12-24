@@ -46,6 +46,7 @@ dependencies {
     implementation deps.androidx.activity
     implementation deps.androidx.fragment
     implementation deps.androidx.constraintlayout
+    implementation deps.androidx.paging
 
     implementation deps.navigation.fragment
     implementation deps.navigation.ui
