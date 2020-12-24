@@ -27,6 +27,12 @@ class ThreadsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val adapter = ThreadsAdapter()
+        binding.list.adapter = adapter
+        viewModel.messages.observe(viewLifecycleOwner, {
+            adapter.submitData(viewLifecycleOwner.lifecycle, it)
+        })
     }
 
     override fun onDestroyView() {
