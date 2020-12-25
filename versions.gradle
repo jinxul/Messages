@@ -43,6 +43,7 @@ deps.androidx = androidx
 def navigation = [:]
 navigation.fragment = "androidx.navigation:navigation-fragment-ktx:$versions.navigation"
 navigation.ui = "androidx.navigation:navigation-ui-ktx:$versions.navigation"
+navigation.safe_args = "androidx.navigation:navigation-safe-args-gradle-plugin:$versions.navigation"
 deps.navigation = navigation
 
 def hilt = [:]
