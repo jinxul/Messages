@@ -2,7 +2,7 @@ package com.givekesh.messages.di.modules
 
 import android.content.ContentResolver
 import com.givekesh.messages.data.mappers.MessagesMapper
-import com.givekesh.messages.data.source.ContentApi
+import com.givekesh.messages.data.source.local.ContentApi
 import com.givekesh.messages.data.source.MainRepository
 import dagger.Module
 import dagger.Provides

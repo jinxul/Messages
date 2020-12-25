@@ -1,4 +1,4 @@
-package com.givekesh.messages.data.source
+package com.givekesh.messages.data.source.local
 
 import android.content.ContentResolver
 import android.database.Cursor
