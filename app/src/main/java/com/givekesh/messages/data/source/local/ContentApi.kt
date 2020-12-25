@@ -11,19 +11,13 @@ class ContentApi(
     private val contentResolver: ContentResolver,
     private val mapper: MessagesMapper
 ) {
-    fun getConversationThreads(offset: Int): List<Messages> =
-        getMessages(offset)
-
-    fun getConversationsFromThreadId(threadId: Long, offset: Int): List<Messages> =
-        getMessages(threadId, offset)
-
-    private fun getMessages(offset: Int): List<Messages> =
+    fun getMessages(offset: Int): List<Messages> =
         getMessages(
             uri = Uri.parse("content://mms-sms/conversations/"),
             offset = offset
         )
 
-    private fun getMessages(threadId: Long, offset: Int): List<Messages> =
+    fun getMessages(threadId: Long, offset: Int): List<Messages> =
         getMessages(
             uri = Uri.parse("content://sms/"),
             offset = offset,

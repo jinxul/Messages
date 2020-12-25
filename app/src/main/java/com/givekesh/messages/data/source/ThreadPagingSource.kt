@@ -14,7 +14,7 @@ class ThreadPagingSource(
     ): LoadResult<Int, Messages> {
 
         val position = params.key ?: 1
-        val response = contentApi.getConversationThreads(
+        val response = contentApi.getMessages(
             (position - 1) * Constant.LIMIT
         )
         return LoadResult.Page(

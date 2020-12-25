@@ -14,7 +14,7 @@ class ConversationPagingSource(
         params: LoadParams<Int>
     ): LoadResult<Int, Messages> {
         val position = params.key ?: 1
-        val response = contentApi.getConversationsFromThreadId(
+        val response = contentApi.getMessages(
             threadId = threadId,
             offset = (position - 1) * Constant.LIMIT
         )
