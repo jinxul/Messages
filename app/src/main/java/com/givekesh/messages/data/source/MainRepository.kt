@@ -9,7 +9,7 @@ import com.givekesh.messages.util.Constant
 class MainRepository constructor(
     private val contentApi: ContentApi
 ) {
-    fun getThreads() = Pager(
+    fun getConversationThreads() = Pager(
         config = PagingConfig(
             pageSize = Constant.PAGE_SIZE,
             maxSize = Constant.MAX_SIZE,

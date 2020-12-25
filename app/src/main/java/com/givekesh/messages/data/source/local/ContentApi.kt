@@ -11,9 +11,23 @@ class ContentApi(
     private val contentResolver: ContentResolver,
     private val mapper: MessagesMapper
 ) {
-    fun getThreads(offset: Int): List<Messages> {
+    fun getConversationThreads(offset: Int): List<Messages> =
+        getMessages(offset)
+
+    private fun getMessages(offset: Int): List<Messages> =
+        getMessages(
+            uri = Uri.parse("content://mms-sms/conversations/"),
+            offset = offset
+        )
+
+    private fun getMessages(
+        uri: Uri,
+        offset: Int,
+        selection: String? = null,
+        selectionArgs: Array<String>? = null
+    ): List<Messages> {
         val messageList: MutableList<Messages> = mutableListOf()
-        val cursor = getThreadCursor(offset)
+        val cursor = getCursor(uri, offset, selection, selectionArgs)
         while (cursor.moveToNext()) {
             val message = mapper.mapFromEntity(cursor)
             messageList.add(message)
@@ -21,12 +35,17 @@ class ContentApi(
         return messageList
     }
 
-    private fun getThreadCursor(offset: Int): Cursor = contentResolver
+    private fun getCursor(
+        uri: Uri,
+        offset: Int,
+        selection: String?,
+        selectionArgs: Array<String>?
+    ): Cursor = contentResolver
         .query(
-            Uri.parse("content://mms-sms/conversations/"),
+            uri,
             arrayOf("*"),
-            null,
-            null,
+            selection,
+            selectionArgs,
             "date DESC, date_sent DESC LIMIT ${Constant.LIMIT} OFFSET $offset"
         )!!
 }

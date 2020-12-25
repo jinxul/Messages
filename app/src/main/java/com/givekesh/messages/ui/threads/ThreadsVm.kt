@@ -11,5 +11,5 @@ class ThreadsVm @ViewModelInject constructor(
     @Assisted private val state: SavedStateHandle
 ) : ViewModel() {
 
-    val messages = mainRepository.getThreads().cachedIn(viewModelScope)
+    val messages = mainRepository.getConversationThreads().cachedIn(viewModelScope)
 }
