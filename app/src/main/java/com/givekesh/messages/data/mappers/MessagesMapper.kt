@@ -1,6 +1,7 @@
 package com.givekesh.messages.data.mappers
 
 import android.database.Cursor
+import androidx.core.database.getIntOrNull
 import com.givekesh.messages.data.models.Messages
 import com.givekesh.messages.util.EntityMapper
 import javax.inject.Inject
@@ -28,14 +29,14 @@ class MessagesMapper @Inject constructor(
             dateSent = entity.getLong(
                 entity.getColumnIndex("date_sent")
             ),
-            messageBox = entity.getInt(
+            messageBox = entity.getIntOrNull(
                 entity.getColumnIndex("msg_box")
-            ),
+            ) ?: 0,
             read = entity.getInt(
                 entity.getColumnIndex("read")
             ) == 1,
-            readStatus = entity.getInt(
+            readStatus = entity.getIntOrNull(
                 entity.getColumnIndex("read_status")
-            )
+            )?:0
         )
 }

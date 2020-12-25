@@ -18,4 +18,12 @@ class MainRepository constructor(
         pagingSourceFactory = { ThreadPagingSource(contentApi) }
     ).liveData
 
+    fun getConversationsFromThreadId(threadId: Long) = Pager(
+        config = PagingConfig(
+            pageSize = Constant.PAGE_SIZE,
+            maxSize = Constant.MAX_SIZE,
+            enablePlaceholders = false
+        ),
+        pagingSourceFactory = { ConversationPagingSource(contentApi, threadId) }
+    ).liveData
 }
